@@ -11,11 +11,11 @@ const server = express();
 
 server.name = 'API';
 
-app.use(cors());
-app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+server.use(cors());
+server.use(morgan('dev'));
+server.use(cookieParser());
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 server.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Credentials', 'true');
