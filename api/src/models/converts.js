@@ -15,6 +15,6 @@ module.exports = (sequelize) => {
       converted: {
         type: DataTypes.FLOAT
       }
-    },
+    }, { timestamps: false }
   );
 };
