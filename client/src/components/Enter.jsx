@@ -27,7 +27,7 @@ export default function Enter() {
         context.dispatch({ type: "ADDCHAT", payload: res.data });
       })
       .catch(function (error) {
-        context.dispatch({ type: "ADDCHAT", payload: error });
+        console.log(error);
       });
     setState({
       ...state,
