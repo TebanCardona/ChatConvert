@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const { Currency } = require('../db')
+const { Currencies } = require('../db')
 const router = Router()
 
 router.get('/', async (req, res) => {
   try {
-    const data = await Currency.findAll()
+    const data = await Currencies.findAll()
     if (data.length === 0) throw ('No se eencuentran divisas en la base de datos')
     res.send(data)
   } catch (error) {

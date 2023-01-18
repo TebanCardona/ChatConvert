@@ -1,6 +1,6 @@
 require("dotenv").config();
 const axios = require("axios")
-const { Currency } = require('../db')
+const { Currencies } = require('../db')
 const { apikey } = process.env
 const options = {
   method: 'GET',
@@ -13,7 +13,7 @@ const postCurrencies = async () => {
     if (!res.data) throw res.error
     const ids = Object.keys(res.data.currencies)
     ids.forEach(async (el) => {
-      await Currency.create({
+      await Currencies.create({
         id: el,
         name: res.data.currencies[el]
       })

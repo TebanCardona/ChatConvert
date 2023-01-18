@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Convert, Currency } = require("../db")
+const { Converts, Currencies } = require("../db")
 const { convertAPi } = require('../scripts/convertAPi')
 const router = Router()
 
@@ -17,14 +17,14 @@ router.post('/', async (req, res) => {
 
     }
     const data = await convertAPi(to, from, amountNaN)
-    await Convert.create({
+    await Converts.create({
       amount: amountNaN,
       currencyto: to,
       currencyfrom: from,
       converted: data
     })
-    const nameFrom = await Currency.findByPk(from)
-    const nameTo = await Currency.findByPk(to)
+    const nameFrom = await Currencies.findByPk(from)
+    const nameTo = await Currencies.findByPk(to)
     return res.send(`ConvertIO ha calculado que ${nameFrom.name} $${amount} a ${nameTo.name} son $${data}.`)
   } catch (error) {
     res.status(500).send(error)
