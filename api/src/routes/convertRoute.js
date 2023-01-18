@@ -19,8 +19,8 @@ router.post('/', async (req, res) => {
     const data = await convertAPi(to, from, amountNaN)
     await Convert.create({
       amount: amountNaN,
-      currencyTo: to,
-      currencyFrom: from,
+      currencyto: to,
+      currencyfrom: from,
       converted: data
     })
     const nameFrom = await Currency.findByPk(from)
