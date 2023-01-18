@@ -17,7 +17,7 @@ export default function Enter() {
     context.dispatch({ type: "ADDCHAT", payload: state.amount });
     const options = {
       method: "POST",
-      url: "http://pruebasolati-backend.up.railway.app/convert",
+      url: "https://pruebasolati-backend.up.railway.app/convert",
       data: state,
     };
     axios
