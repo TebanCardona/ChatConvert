@@ -7,7 +7,9 @@ import './App.css';
 
 function App() {
   const context = useContext(Context)
+  const curr = context.state.currencies
   const getCurrencies = async () => {
+    if (curr.length > 1) return
     const res = await axios.get("https://pruebasolati-backend.up.railway.app/currencies")
     context.dispatch({ type: "CURRENCIES", payload: res.data })
   }
