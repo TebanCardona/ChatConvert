@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useContext } from 'react'
+import axios from 'axios'
+import Chat from './components/Chat'
+import Enter from './components/Enter'
+import { Context } from "./context";
 import './App.css';
 
 function App() {
+  const context = useContext(Context)
+  const getCurrencies = async () => {
+    const res = await axios.get("http://localhost:3001/currencies")
+    context.dispatch({ type: "CURRENCIES", payload: res.data })
+  }
+  getCurrencies()
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='conteiner'>
+      <header>
+        <h1>ConvertIO</h1>
       </header>
+      <div className='chat'><Chat /><Enter /> </div>
     </div>
   );
 }
