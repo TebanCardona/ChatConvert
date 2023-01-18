@@ -6,10 +6,10 @@ module.exports = (sequelize) => {
       amount: {
         type: DataTypes.FLOAT,
       },
-      currencyFrom: {
+      currencyfrom: {
         type: DataTypes.STRING
       },
-      currencyTo: {
+      currencyto: {
         type: DataTypes.STRING
       },
       converted: {
