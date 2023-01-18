@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   const context = useContext(Context)
   const getCurrencies = async () => {
-    const res = await axios.get("http://localhost:3001/currencies")
+    const res = await axios.get("http://pruebasolati-backend.up.railway.app/currencies")
     context.dispatch({ type: "CURRENCIES", payload: res.data })
   }
   getCurrencies()
