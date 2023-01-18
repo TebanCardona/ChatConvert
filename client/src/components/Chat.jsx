@@ -22,7 +22,7 @@ export default function Chat() {
         overflow: "scroll",
         height: "600px",
         width: "100%",
-        "overflow-x": "hidden",
+        overflowX: "hidden",
       }}
     >
       {chats?.map((el, index) => (
